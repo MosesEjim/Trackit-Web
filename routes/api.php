@@ -17,4 +17,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('v1/online/ussd/service', 'ussdController@onlineUssdMenu');
+Route::post('ussd', 'ussdController@onlineUssdMenu');

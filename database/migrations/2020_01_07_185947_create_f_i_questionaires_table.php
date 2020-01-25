@@ -26,6 +26,7 @@ class CreateFIQuestionairesTable extends Migration
             $table->string('lga_code');
             $table->string('facility_respondent');
             $table->string('household_respondent');
+            $table->string('facility_id');
             $table->timestamps();
         });
     }

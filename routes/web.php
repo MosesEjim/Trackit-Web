@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+
+Route::get('/', 'AdminController@index');
+Route::resource('SSQuestioniares','SSQuestioniareController');
+Route::resource('FSQuestioniares','FSQuestionaireController');
+Route::get('statistics', 'SSQuestioniareController@statistics' );
+Route::get('personnelstatistics', 'FSQuestionaireController@statistics' );
+//Route::get('/ssresponsedetail','SSQuestioniareController@show');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Facility;
 
 class FacilitiesiesController extends Controller
 {
@@ -13,7 +14,10 @@ class FacilitiesiesController extends Controller
      */
     public function index()
     {
-        //
+      $facilities = Facility::all();
+      $no_facilities = count($facilities);   
+
+      return view('index')->with('facilities',$facilities);
     }
 
     /**

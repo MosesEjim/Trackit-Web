@@ -15,6 +15,7 @@ class CreateSSQuestionairesTable extends Migration
     {
         Schema::create('s_s_questionaires', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name_of_data_collector');
             $table->string('no_of_usable_RTUF');
             $table->boolean('usable_RTUF');
             $table->boolean('expired_RTUF');
@@ -26,6 +27,7 @@ class CreateSSQuestionairesTable extends Migration
             $table->boolean('dispensed_RTUF_record');
             $table->boolean('record_of_distributed_RTUF');
             $table->integer('no_of_dispensed_RTUF');
+            $table->string('facility_id');
             $table->timestamps();
         });
     }
