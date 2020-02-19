@@ -109,7 +109,7 @@ class ChartsViewController extends Controller
             }
             if(!empty($request->input('education'))){
                 $education_responses = EductionAvailability::all();
-                $facility_response =$education_responses->where('lga',$request-input('lga'));
+                $facility_response =$education_responses->where('lga',$request->input('lga'));
                 $expired_rutf = $facility_response->where('expired_RTUF',1)->count();
                 $unexpired_rutf = $facility_response->where('expired_RTUF',0)->count();
                 $expired_rutf_chart->dataset('education','bar',[$expired_rutf,$unexpired_rutf])->backgroundcolor('red');
