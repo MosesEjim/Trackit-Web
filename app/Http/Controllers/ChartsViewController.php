@@ -81,7 +81,7 @@ class ChartsViewController extends Controller
             }
             if(!empty($request->input('nutrition'))){
                 $ss_responses = SSQuestionaire::all();
-                $facility_response =$ss_responses->where('lga','Kanke');
+                $facility_response =$ss_responses->where('lga','Bogoro');
                 $expired_rutf = $facility_response->where('expired_RTUF',1)->count();
                 $unexpired_rutf = $facility_response->where('expired_RTUF',0)->count();
                 $expired_rutf_chart->dataset('nutrition','bar',[$expired_rutf,$unexpired_rutf])->backgroundcolor('orange');
@@ -95,7 +95,7 @@ class ChartsViewController extends Controller
             }
             if(!empty($request->input('wash'))){
                 $wash_responses = WashAvailability::all();
-                $facility_response =$wash_responses->where('lga','Kanke');
+                $facility_response =$wash_responses->where('lga','Bogoro');
                 $expired_rutf = $facility_response->where('expired_RTUF',1)->count();
                 $unexpired_rutf = $facility_response->where('expired_RTUF',0)->count();
                 $expired_rutf_chart->dataset('wash','bar',[$expired_rutf,$unexpired_rutf])->backgroundcolor('blue');
@@ -109,7 +109,7 @@ class ChartsViewController extends Controller
             }
             if(!empty($request->input('education'))){
                 $education_responses = EductionAvailability::all();
-                $facility_response =$education_responses->where('lga','Kanke');
+                $facility_response =$education_responses->where('lga','Bogoro');
                 $expired_rutf = $facility_response->where('expired_RTUF',1)->count();
                 $unexpired_rutf = $facility_response->where('expired_RTUF',0)->count();
                 $expired_rutf_chart->dataset('education','bar',[$expired_rutf,$unexpired_rutf])->backgroundcolor('red');
