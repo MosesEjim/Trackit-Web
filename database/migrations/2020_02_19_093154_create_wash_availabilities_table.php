@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSSQuestionairesTable extends Migration
+class CreateWashAvailabilitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSSQuestionairesTable extends Migration
      */
     public function up()
     {
-        Schema::create('s_s_questionaires', function (Blueprint $table) {
+        Schema::create('wash_availabilities', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('facility_id');
             $table->string('name_of_data_collector');
@@ -42,6 +42,6 @@ class CreateSSQuestionairesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('s_s_questionaires');
+        Schema::dropIfExists('wash_availabilities');
     }
 }

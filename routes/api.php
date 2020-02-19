@@ -18,3 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('ussd', 'ussdController@onlineUssdMenu');
+Route::post('stock', 'StockApiController@store');
+Route::post('healthstock', 'StockApiController@healthStore');
+Route::post('washstock', 'StockApiController@washStore');
+Route::post('educationstock', 'StockApiController@educationStore');
+Route::get('all', 'StockApiController@index');
+

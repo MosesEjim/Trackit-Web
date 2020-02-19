@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\SSQuestionaire;
+use App\Charts\stock;
 class SSQuestioniareController extends Controller
 {
     /**
@@ -18,16 +19,15 @@ class SSQuestioniareController extends Controller
     }
 
     public function statistics(){
+
         $ss_responses = SSQuestionaire::all();
-        $exp_data = [];
-        $i = 0;
-        foreach($ss_responses as $response){
-            $exp_data[$i] = $response->expired_RTUF;
-            $i++;
-        }
-        $unexp_length = count(array_keys($exp_data, 0));
-        $exp_length = count(array_keys($exp_data ,1));
-        $data = [$exp_length,$unexp_length];
+        $expired_rutf = $ss_responses->where('expired_RTUF',1)->count();
+        $unexpired_rutf = $ss_responses->where('expired_RTUF',0)->count();
+
+        $expired_rutf_chart = new stock;
+        $expired_rutf_chart->labels(['Expired_RTUF','Unexpired_RTUF']);
+        $expired_rutf_chart->dataset('percentage','pie',[$expired_rutf,$unexpired_rutf]);
+
 
         $stock_out_days = 0;
         $i = 0;
@@ -37,16 +37,51 @@ class SSQuestioniareController extends Controller
         }
         $stock_out_days /= $i;
 
-        $usable_rutf = [];
-        $i = 0;
-        foreach($ss_responses as $response){
-            $usable_rutf[$i] = $response->usable_RTUF;
-            $i++;
+        
+        $usable_rutf = $ss_responses->where('usable_RTUF',1)->count();
+        $unusable_rutf = $ss_responses->where('usable_RTUF',0)->count();
+
+        $usable_rutf_chart = new stock;
+        $usable_rutf_chart->labels(['Usable_RTUF','Unusable_RTUF']);
+        $usable_rutf_chart->dataset('percentage','pie',[$usable_rutf,$unusable_rutf]);
+
+
+        return view('stockstatistics')->with('expired_rutf_chart', $expired_rutf_chart)
+        ->with('stock_out_days', $stock_out_days)
+        ->with('usable_rutf_chart', $usable_rutf_chart);
+    }
+
+
+    
+
+
+    public function usableDetail(Request $request){
+
+        if(count($request->all())){
+
+            $ss_responses = SSQuestionaire::all();
+            $filter_responses = $ss_responses->whereBetween('created_at',[$request->from,$request->to]);
+            $usable = $filter_responses->where('usable_RTUF',1)->count();
+            $unusable = $filter_responses->where('usable_RTUF',0)->count();
+
+            $chart = new stock;
+            $chart->labels(['Usable', 'Unusable']);
+            $chart->dataset('My dataset', $request->chart_type, [$usable, $unusable])->color('#ffffff','#000000');
+
+            return view('statisticsdetail')->with('chart', $chart);
+
+        }else{
+
+            $chart = new stock;
+            $chart->labels(['2 days ago', 'Yesterday', 'Today']);
+            $chart->dataset('My dataset', 'bar', [10, 40, 60]);
+            $chart->dataset('second dataset', 'bar', [10, 60, 80]);
+            return view('statisticsdetail')->with('chart', $chart);
+
         }
-        $unusable_length = count(array_keys($usable_rutf, 0));
-        $usable_length = count(array_keys($usable_rutf ,1));
-        $usable_data = [$usable_length,$unusable_length];
-        return view('stockstatistics')->with('data', $data)->with('stock_out_days',$stock_out_days)->with('usable', $usable_data);
+        
+        
+
     }
     /**
      * Show the form for creating a new resource.
@@ -79,7 +114,8 @@ class SSQuestioniareController extends Controller
     {
         $response = SSQuestionaire::find($id);
         $facility = $response->facility;
-        return view('ssresponsedetail')->with('response',$response)->with('facility', $facility);
+        $location = [$response->longitude,$response->latitude];
+        return view('ssresponsedetail')->with('response',$response)->with('facility', $facility)->with('location',$location);
     }
 
     /**

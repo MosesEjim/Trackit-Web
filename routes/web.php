@@ -18,8 +18,13 @@
 
 
 Route::get('/', 'AdminController@index');
-Route::resource('SSQuestioniares','SSQuestioniareController');
+Route::get('ssquestioniares','SSQuestioniareController@index');
+Route::get('ssquestioniares/statistics','SSQuestioniareController@statistics');
+Route::get('ssquestioniares/{id}','SSQuestioniareController@show');
 Route::resource('FSQuestioniares','FSQuestionaireController');
 Route::get('statistics', 'SSQuestioniareController@statistics' );
 Route::get('personnelstatistics', 'FSQuestionaireController@statistics' );
-//Route::get('/ssresponsedetail','SSQuestioniareController@show');
+Route::post('ssquestioniares/statistics/usable', 'SSQuestioniareController@usableDetail');
+Route::get('ssquestioniares/statistics/usable', 'SSQuestioniareController@usableDetail');
+Route::get('charts', 'ChartsViewController@statistics');
+Route::post('charts', 'ChartsViewController@statistics');
