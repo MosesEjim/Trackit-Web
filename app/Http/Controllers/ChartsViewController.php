@@ -66,7 +66,7 @@ class ChartsViewController extends Controller
     
             if(!empty($request->input('health'))){
                 $avail_responses = HealthAvailability::all();
-                $facility_response =$avail_responses->where('lga','Kanke');
+                $facility_response =$avail_responses->where('lga','Bogoro');
 
                 $health_expired_rutf = $facility_response->where('expired_RTUF',1)->count();
                 $health_unexpired_rutf = $facility_response->where('expired_RTUF',0)->count();
