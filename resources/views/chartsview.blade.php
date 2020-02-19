@@ -7,7 +7,7 @@
         {{csrf_field()}}
         <div class="col-md-3">
             Select Questionaire <br>
-            <input type="radio" name = 'question' value ='Availability'>Availability & Quality <br>
+            <input type="radio" name = 'question' value ='Availability' checked = 'checked'>Availability & Quality <br>
             <input type="radio" name = 'question' value = 'Usage'> Usage <br>
             <input type="radio" name = 'question' value = 'Household'> Household <br>
         </div>
