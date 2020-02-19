@@ -7,7 +7,7 @@ use App\SSQuestionaire;
 use App\HealthAvailability;
 use App\Facility;
 use App\WashAvailability;
-use App\EducationAvailability;
+use App\EductionAvailability;
 class StockApiController extends Controller
 {
     /**
@@ -110,7 +110,7 @@ class StockApiController extends Controller
     }
     public function educationStore(Request $request){
         
-        $avail_response = new EducationAvailability();
+        $avail_response = new EductionAvailability();
         $avail_response->name_of_data_collector = $request->input('name_of_data_collector');
         $avail_response->facility_id = $request->input('facility_id');
         $avail_response->no_of_usable_RTUF = $request->input('no_of_usable_RTUF');
