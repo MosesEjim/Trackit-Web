@@ -66,7 +66,7 @@ class ChartsViewController extends Controller
     
             if(!empty($request->input('health'))){
                 $avail_responses = HealthAvailability::all();
-                $facility_response =$avail_responses->where('lga',$request-input('lga'));
+                $facility_response =$avail_responses->where('lga',$request->input('lga'));
 
                 $health_expired_rutf = $facility_response->where('expired_RTUF',1)->count();
                 $health_unexpired_rutf = $facility_response->where('expired_RTUF',0)->count();
@@ -81,7 +81,7 @@ class ChartsViewController extends Controller
             }
             if(!empty($request->input('nutrition'))){
                 $ss_responses = SSQuestionaire::all();
-                $facility_response =$ss_responses->where('lga',$request-input('lga'));
+                $facility_response =$ss_responses->where('lga',$request->input('lga'));
                 $expired_rutf = $facility_response->where('expired_RTUF',1)->count();
                 $unexpired_rutf = $facility_response->where('expired_RTUF',0)->count();
                 $expired_rutf_chart->dataset('nutrition','bar',[$expired_rutf,$unexpired_rutf])->backgroundcolor('orange');
@@ -95,7 +95,7 @@ class ChartsViewController extends Controller
             }
             if(!empty($request->input('wash'))){
                 $wash_responses = WashAvailability::all();
-                $facility_response =$wash_responses->where('lga',$request-input('lga'));
+                $facility_response =$wash_responses->where('lga',$request->input('lga'));
                 $expired_rutf = $facility_response->where('expired_RTUF',1)->count();
                 $unexpired_rutf = $facility_response->where('expired_RTUF',0)->count();
                 $expired_rutf_chart->dataset('wash','bar',[$expired_rutf,$unexpired_rutf])->backgroundcolor('blue');
