@@ -222,8 +222,8 @@
     function initMap() {
     // The location of Uluru
      var location = @json($location);
-     var longitude = location[0];
-     var latitude = location[1];
+     var longitude = parseFloat(location[0]);
+     var latitude = parseFloat(location[1]);
     var uluru = {lat: latitude, lng: longitude};
     // The map, centered at Uluru
     var map = new google.maps.Map(
