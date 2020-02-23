@@ -8,6 +8,7 @@ use App\HealthAvailability;
 use App\Facility;
 use App\WashAvailability;
 use App\EductionAvailability;
+use App\Collector;
 class StockApiController extends Controller
 {
     /**
@@ -39,8 +40,13 @@ class StockApiController extends Controller
      */
     public function store(Request $request)
     {
+
+            $allUsers = Collector::all();
+            $user = $allUsers->where('email',$request->input('name_of_data_collector'));
+            $user = $user[0];
+
             $ss_response = new SSQuestionaire();
-            $ss_response->name_of_data_collector = $request->input('name_of_data_collector');
+            $ss_response->name_of_data_collector = $user->name;
             $ss_response->facility_id = $request->input('facility_id');
             $ss_response->no_of_usable_RTUF = $request->input('no_of_usable_RTUF');
             $ss_response->usable_RTUF = $request->input('usable_RTUF');

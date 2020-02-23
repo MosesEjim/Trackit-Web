@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLgasTable extends Migration
+class CreateCollectorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateLgasTable extends Migration
      */
     public function up()
     {
-        Schema::create('lgas', function (Blueprint $table) {
-            $table->string('lga_code');
-            $table->primary('lga_code');
-            $table->string('lga_name');
-            $table->string('state_code');
+        Schema::create('collectors', function (Blueprint $table) {
+            $table->string('email');
+            $table->primary('email');
+            $table->string('name');
+            $table->string('password');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateLgasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lgas');
+        Schema::dropIfExists('collectors');
     }
 }

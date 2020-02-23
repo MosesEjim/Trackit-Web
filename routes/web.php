@@ -28,3 +28,5 @@ Route::post('ssquestioniares/statistics/usable', 'SSQuestioniareController@usabl
 Route::get('ssquestioniares/statistics/usable', 'SSQuestioniareController@usableDetail');
 Route::get('charts', 'ChartsViewController@statistics');
 Route::post('charts', 'ChartsViewController@statistics');
+Route::get('register', 'CollectorsController@create');
+Route::get('store', 'CollectorsController@store');

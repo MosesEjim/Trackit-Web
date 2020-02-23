@@ -183,13 +183,11 @@ class ussdController extends Controller
         }
         elseif ($level =="12" && $ussd_string_exploded[0] == "2") {
            
-            $response = "CON How many patients' entries that completed treatment in the past three months are you
-            able to review today?";
+            $response = "CON How many patients' entries that completed treatment in the past three months are you able to review today?";
         }
         elseif ($level =="13" && $ussd_string_exploded[0] == "2") {
            
-            $response = "CON What was the child's weight
-            on admission, in kilograms?";
+            $response = "CON What was the child's weight on admission, in kilograms?";
         }
         elseif ($level =="14" && $ussd_string_exploded[0] == "2") {
            
@@ -197,8 +195,7 @@ class ussdController extends Controller
         }
         elseif ($level =="15" && $ussd_string_exploded[0] == "2") {
            
-            $response = "CON Was the child
-            successfully discharged as cured/recovered from this facility? \n (yes = 1, no = 0)";
+            $response = "CON Was the child successfully discharged as cured/recovered from this facility? \n (yes = 1, no = 0)";
         }
         elseif ($level =="16" && $ussd_string_exploded[0] == "2") {
            
@@ -206,9 +203,7 @@ class ussdController extends Controller
         }
         elseif ($level =="17" && $ussd_string_exploded[0] == "2") {
            
-            $response = "CON What was the child's weight as of the final entry, in kilograms?
-            (whether or not the child completed
-            treatment successfully)";
+            $response = "CON What was the child's weight as of the final entry, in kilograms? (whether or not the child completed treatment successfully)";
         }
         elseif ($level =="18" && $ussd_string_exploded[0] == "2") {
             $fs_response = new FSQuestionaire();
