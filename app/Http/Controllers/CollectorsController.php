@@ -53,7 +53,7 @@ class CollectorsController extends Controller
         $user = $allUsers->find($request->input('email'));
         
         if($user->password == $request->input('password')){
-         return response()->json($success);
+         return response()->json(1);
         }else{
             return response()->json(0);
         }
