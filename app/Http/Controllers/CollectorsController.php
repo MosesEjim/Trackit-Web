@@ -50,7 +50,7 @@ class CollectorsController extends Controller
     public function login(Request $request){
 
         $allUsers = Collector::all();
-        $user = $allUsers->find($request->input('email'));
+        $user = Collector::find($request->input('email'));
         
         if($user->password == $request->input('password')){
          return response()->json(1);
