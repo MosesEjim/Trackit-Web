@@ -42,7 +42,7 @@ class StockApiController extends Controller
     {
 
             $allUsers = Collector::all();
-            $user = Collector::find($request->input('name_of_data_collector'));
+            $user = Collector::find($request->input('name_of_data_collector'))
             
 
             $ss_response = new SSQuestionaire();
