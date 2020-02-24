@@ -41,7 +41,7 @@ class CollectorsController extends Controller
         $collector->email = $request->input('email');
         $password = rand(10000,99999);
         $collector->password = $password;
-        $data = ['email' => $request->input('email'), 'name' => $request->input('username')];
+        $data = ['email' => $request->input('email'), 'password' => $password];
         Mail::to($request->input('email'))->send(new sendMail($data));
         $collector->save();
         return back();
