@@ -44,6 +44,7 @@ class CollectorsController extends Controller
         $data = ['email' => $request->input('email'), 'name' => $request->input('username')];
         Mail::to($request->input('email'))->send(new sendMail($data));
         $collector->save();
+        return back();
     }
 
     public function login(Request $request){
@@ -57,6 +58,7 @@ class CollectorsController extends Controller
         }else{
             return response()->json(0);
         }
+        
         
     }
 
