@@ -77,7 +77,7 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fab fa-nutritionix"></i>Nutrition</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-puzzle-piece"></i><a href="ssquestioniares">Availability & Quality</a></li>
+                            <li><i class="fa fa-puzzle-piece"></i><a href="{{url('ssquestioniares')}}">Availability & Quality</a></li>
                             <li><i class="fa fa-id-badge"></i><a href="#">Usage</a></li>
                             <li><i class="fa fa-bars"></i><a href="#">Household</a></li>
                         </ul>
