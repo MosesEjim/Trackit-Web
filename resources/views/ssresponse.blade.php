@@ -5,7 +5,7 @@
             <div class="animated fadeIn">
                 <div class="row">
 
-                    <div class="col-md-12">
+                    <div class="col-md-12 col-sm-12">
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title">Stock Status Questionaire Responses</strong>

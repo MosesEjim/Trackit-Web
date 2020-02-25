@@ -50,7 +50,7 @@
                     
                     <h3 class="menu-title">PROGRAM MENU</h3><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Health</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-heartbeat"></i>Health</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-puzzle-piece"></i><a href="#">Availability & Quality</a></li>
                             <li><i class="fa fa-id-badge"></i><a href="#">Usage</a></li>
@@ -58,7 +58,7 @@
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Education</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-university"></i>Education</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-puzzle-piece"></i><a href="#">Availability & Quality</a></li>
                             <li><i class="fa fa-id-badge"></i><a href="#">Usage</a></li>
@@ -75,7 +75,7 @@
                     </li>
                     
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Nutrition</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fab fa-nutritionix"></i>Nutrition</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-puzzle-piece"></i><a href="ssquestioniares">Availability & Quality</a></li>
                             <li><i class="fa fa-id-badge"></i><a href="#">Usage</a></li>
@@ -84,7 +84,7 @@
                     </li>
 
                     <li class="">
-                        <a href="charts"> <i class="menu-icon fa fa-table"></i>Charts</a>
+                        <a href="charts"> <i class="menu-icon fas fa-chart-bar"></i>Charts</a>
                     </li>
                     
                     
@@ -108,7 +108,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-8">
+            <!-- <div class="col-sm-8">
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
@@ -116,7 +116,7 @@
                         </ol>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
         @yield('content')
@@ -130,7 +130,7 @@
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/js/main.js"></script>
 
-
+    <script src="https://use.fontawesome.com/e1095aa5cd.js"></script>
     <script src="vendors/chart.js/dist/Chart.bundle.min.js"></script>
     <script src="assets/js/dashboard.js"></script>
     <script src="assets/js/widgets.js"></script>
