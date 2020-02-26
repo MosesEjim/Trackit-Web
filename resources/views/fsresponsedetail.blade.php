@@ -86,10 +86,8 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6">
-                        <div  id = "map">
-                           
-                        </div>
+                    <div class="col-md-6" id = "map" style = "height:500px">
+                        
                     </div>
                 </div>
                 
@@ -270,6 +268,7 @@
      var location = @json($location);
      var longitude = parseFloat(location[0]);
      var latitude = parseFloat(location[1]);
+     console.log(location);
     var uluru = {lat: latitude, lng: longitude};
     // The map, centered at Location.
     var map = new google.maps.Map(

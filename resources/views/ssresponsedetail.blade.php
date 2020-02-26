@@ -85,7 +85,9 @@
                     </div>
                 </div>
 
-                
+                <div class="col-md-6" id = "map" style = "height:500px">
+                        
+                </div>
 
             </div>
         </div><!-- .animated -->
