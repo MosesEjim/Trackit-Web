@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\FSQuestionaire;
+use App\Charts\stock;
 
 class FSQuestionaireController extends Controller
 {
@@ -23,42 +24,48 @@ class FSQuestionaireController extends Controller
         $band_two = [];
         $band_three = [];
         $fs_responses = FSQuestionaire::all();
-        $i = 0;
-        foreach($fs_responses as $response){
-            $band_one[$i] = $response->describe_dosage1;
-            $band_two[$i] = $response->describe_dosage2;
-            $band_three[$i] = $response->describe_dosage3;
-            $i++;
-        }
-        $correct_band1 = count(array_keys($band_one,1));
-        $wrong_band1 = count(array_keys($band_one,0));
-        $correct_band2 = count(array_keys($band_two,1));
-        $wrong_band2 = count(array_keys($band_two,0));
-        $correct_band3 = count(array_keys($band_three,1));
-        $wrong_band3 = count(array_keys($band_three,0));
 
-        $data_one = [$correct_band1, $wrong_band1];
-        $data_two = [$correct_band2, $wrong_band2];
-        $data_three = [$correct_band3, $wrong_band3];
+        $correct_band1 = $fs_responses->where('describe_dosage1',1)->count();
+        $wrong_band1 = $fs_responses->where('describe_dosage1',0)->count();
 
-        $rtuf_in_market = [];
-        $i = 0;
-        foreach($fs_responses as $response){
-            $rtuf_in_market[$i] = $response->seller_at_home;
-            $i++;
-        }
-        $sold = count( array_keys($rtuf_in_market, 1));
-        $not_sold = count(array_keys($rtuf_in_market, 0));
-        $sold_data = [$sold, $not_sold];
+        $correct_band2 = $fs_responses->where('describe_dosage2', 1)->count();
+        $wrong_band2 = $fs_responses->where('describe_dosage2', 0)->count();
 
-        $average_days =0;
+        $correct_band3 = $fs_responses->where('describe_dosage3', 1)->count();
+        $wrong_band3 = $fs_responses->where('describe_dosage3', 0)->count();
+        
+        $rtuf_sold = $fs_responses->where('seller_at_home',1)->count();
+        $rtuf_not_sold = $fs_responses->where('seller_at_home',0)->count();
+
+        $band1_Chart = new Stock();
+        $band1_Chart->labels(['correct','wrong']);
+        $band1_Chart->dataset('Band 1','pie',[$correct_band1,$wrong_band1]);
+
+        $band2_Chart = new Stock();
+        $band2_Chart->labels(['correct','wrong']);
+        $band2_Chart->dataset('Band 2','pie',[$correct_band2,$wrong_band2]);
+
+        $band3_Chart = new Stock();
+        $band3_Chart->labels(['correct','wrong']);
+        $band3_Chart->dataset('Band 3','pie',[$correct_band3,$wrong_band3]);
+
+        $rtuf_chart = new Stock();
+        $rtuf_chart->labels(['sold in market', 'not sold in market']);
+        $rtuf_chart->dataset('rtuf','pie',[$rtuf_sold, $rtuf_not_sold]);
+        
+        $average_days = 0;
         $i = 0;
         foreach($fs_responses as $response){
             $average_days += $response->days_in_treatment;
             $i++;
         }
          $average_days /= $i;
-        return view('personnelstatistics')->with('data_one', $data_one)->with('data_two',$data_two)->with('data_three', $data_three)->with('sold_data',$sold_data)->with('average_days', $average_days);
+        return view('personnelstatistics')
+        ->with('band1_Chart', $band1_Chart)
+        ->with('band2_Chart', $band2_Chart)
+        ->with('band3_Chart', $band3_Chart)
+        ->with('rtuf_chart', $rtuf_chart)
+        ->with('average_days', $average_days);
     }
 
     /**
@@ -90,8 +97,14 @@ class FSQuestionaireController extends Controller
      */
     public function show($id)
     {
+
         $response = FSQuestionaire::find($id);
-        return view('fsresponsedetail')->with('response', $response);
+        $facility = $response->facility;
+        $location = [$response->longitude,$response->latitude];
+        return view('fsresponsedetail')
+        ->with('response', $response)
+        ->with('facility', $facility)
+        ->with('location', $location);
     }
 
     /**

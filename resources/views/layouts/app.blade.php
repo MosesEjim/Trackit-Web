@@ -16,13 +16,13 @@
     <link rel="apple-touch-icon" href="apple-icon.png">
     <link rel="shortcut icon" href="favicon.ico">
     
-    <link rel="stylesheet" href="{{secure_asset('vendors/bootstrap/dist/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{secure_asset('vendors/bootstrap/dist/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{secure_asset('vendors/bootstrap/dist/css/themify-icons.css') }}">
-    <link rel="stylesheet" href="{{secure_asset('vendors/bootstrap/dist/css/flag-icon.min.css') }}">
-    <link rel="stylesheet" href="{{secure_asset('vendors/bootstrap/dist/css/cs-skin-elastic.css') }}">
-    <link rel="stylesheet" href="{{secure_asset('vendors/jqvmap/dist/jqvmap.min.css') }}">
-    <link rel="stylesheet" href="{{secure_asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{asset('vendors/bootstrap/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{asset('vendors/bootstrap/dist/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{asset('vendors/bootstrap/dist/css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{asset('vendors/bootstrap/dist/css/flag-icon.min.css') }}">
+    <link rel="stylesheet" href="{{asset('vendors/bootstrap/dist/css/cs-skin-elastic.css') }}">
+    <link rel="stylesheet" href="{{asset('vendors/jqvmap/dist/jqvmap.min.css') }}">
+    <link rel="stylesheet" href="{{asset('assets/css/style.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
     @yield('script')
@@ -78,13 +78,13 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fab fa-nutritionix"></i>Nutrition</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-puzzle-piece"></i><a href="{{url('ssquestioniares')}}">Availability & Quality</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="#">Usage</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="{{url('fsquestionaire')}}">Usage</a></li>
                             <li><i class="fa fa-bars"></i><a href="#">Household</a></li>
                         </ul>
                     </li>
 
                     <li class="">
-                        <a href="charts"> <i class="menu-icon fas fa-chart-bar"></i>Charts</a>
+                        <a href="{{url('charts')}}"> <i class="menu-icon fas fa-chart-bar"></i>Charts</a>
                     </li>
                     
                     

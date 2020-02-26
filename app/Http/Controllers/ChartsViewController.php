@@ -130,8 +130,6 @@ class ChartsViewController extends Controller
 
         return view('chartsview')->with('expired_rutf_chart', $expired_rutf_chart)
         ->with('facilities', $facilities)
-        ->with('states', $states)
-        ->with('lgas', $lgas)
         ->with('stock_out_days_health',$stock_out_days_health)
         ->with('stock_out_days_education', $stock_out_days_education)
         ->with('stock_out_days_wash', $stock_out_days_wash)

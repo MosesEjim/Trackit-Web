@@ -10,6 +10,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title">Stock Status Questionaire Responses</strong>
+                                <a href="{{ url('fsquestioniares/statistics')}}" class ="btn btn-success" >view statistics</a>
                             </div>
                             <div class="card-body">
                                 <table id="bootstrap-data-table-export" class="table table-striped table-bordered">

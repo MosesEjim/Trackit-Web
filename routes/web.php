@@ -30,3 +30,5 @@ Route::get('charts', 'ChartsViewController@statistics');
 Route::post('charts', 'ChartsViewController@statistics');
 Route::get('register', 'CollectorsController@create');
 Route::get('store', 'CollectorsController@store');
+Route::get('fsquestionaire', 'FSQuestionaireController@index');
+Route::get('fsquestioniares/statistics', 'FSQuestionaireController@statistics');

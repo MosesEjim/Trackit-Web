@@ -9,7 +9,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title">Stock Status Questionaire Responses</strong>
-                                <a href="ssquestioniares/statistics" class ="btn btn-success" >view statistics</a>
+                                <a href="{{ url('ssquestioniares/statistics')}}" class ="btn btn-success" >view statistics</a>
                             </div>
                             <div class="card-body">
                             

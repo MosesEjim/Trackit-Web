@@ -15,6 +15,7 @@ class CreateFSQuestionairesTable extends Migration
     {
         Schema::create('f_s_questionaires', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('facility_id');
             $table->string('name_of_data_collector');
             $table->Integer('protocol_book');
             $table->boolean('describe_dosage1');
@@ -23,15 +24,16 @@ class CreateFSQuestionairesTable extends Migration
             $table->boolean('seller_at_home');
             $table->integer('frequency_of_distribution');
             $table->integer('no_of_patient_charts');
-            $table->integer('child_weight');
             $table->integer('sachets_dispensed');
             $table->integer('patient_entries_reviewed');
             $table->integer('child_weight_in_kg');
             $table->integer('days_in_treatment');
             $table->boolean('child_recovered');
             $table->boolean('child_transfered');
-            $table->boolean('final_weight_in_kg');
-            $table->string('facility_id');
+            $table->string('final_weight_in_kg');
+            $table->double('longitude');
+            $table->double('latitude');
+            $table->string('lga');
             $table->timestamps();
         });
     }

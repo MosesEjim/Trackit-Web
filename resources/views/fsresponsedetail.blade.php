@@ -88,7 +88,7 @@
 
                     <div class="col-md-6">
                         <div  id = "map">
-                            <h1>Hello</h1>
+                           
                         </div>
                     </div>
                 </div>
@@ -267,20 +267,18 @@
     // Initialize and add the map
     function initMap() {
     // The location of Uluru
-    var uluru = {lat: -25.344, lng: 131.036};
-    // The map, centered at Uluru
+     var location = @json($location);
+     var longitude = parseFloat(location[0]);
+     var latitude = parseFloat(location[1]);
+    var uluru = {lat: latitude, lng: longitude};
+    // The map, centered at Location.
     var map = new google.maps.Map(
         document.getElementById('map'), {zoom: 4, center: uluru});
-    // The marker, positioned at Uluru
+    // The marker, positioned at location
     var marker = new google.maps.Marker({position: uluru, map: map});
     }
-        </script>
-        <!--Load the API from the specified URL
-        * The async attribute allows the browser to render the page while the API loads
-        * The key parameter will contain your own API key (which is not needed for this tutorial)
-        * The callback parameter executes the initMap() function
-        -->
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
     </script>
+       
+     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIJ_DAysZsrQU-F3quMVuUJA7XpDum5A4&callback=initMap"> </script>
 
 @endsection

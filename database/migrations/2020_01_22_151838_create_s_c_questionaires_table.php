@@ -15,6 +15,7 @@ class CreateSCQuestionairesTable extends Migration
     {
         Schema::create('s_c_questionaires', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('facility_id');
             $table->string('name_of_data_collector');
             $table->boolean('products_damaged');
             $table->boolean('rodent_in_store');
@@ -29,7 +30,9 @@ class CreateSCQuestionairesTable extends Migration
             $table->boolean('proper_temperature');
             $table->boolean('secured_storage');
             $table->boolean('fire_safety_equipment');
-            $table->string('facility_id');
+            $table->double('longitude');
+            $table->double('latitude');
+            $table->string('lga');
             $table->timestamps();
         });
     }

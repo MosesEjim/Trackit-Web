@@ -22,6 +22,7 @@ Route::post('stock', 'StockApiController@store');
 Route::post('healthstock', 'StockApiController@healthStore');
 Route::post('washstock', 'StockApiController@washStore');
 Route::post('educationstock', 'StockApiController@educationStore');
+Route::post('usage', 'UsageApiController@store');
 Route::post('login', 'CollectorsController@login');
 Route::get('all', 'StockApiController@index');
 

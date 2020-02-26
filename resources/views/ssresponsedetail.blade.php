@@ -221,7 +221,7 @@
      var longitude = parseFloat(location[0]);
      var latitude = parseFloat(location[1]);
     var uluru = {lat: latitude, lng: longitude};
-    // The map, centered at Location
+    // The map, centered at Location.
     var map = new google.maps.Map(
         document.getElementById('map'), {zoom: 4, center: uluru});
     // The marker, positioned at location
