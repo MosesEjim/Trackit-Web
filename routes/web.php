@@ -32,3 +32,5 @@ Route::get('register', 'CollectorsController@create');
 Route::get('store', 'CollectorsController@store');
 Route::get('fsquestionaire', 'FSQuestionaireController@index');
 Route::get('fsquestioniares/statistics', 'FSQuestionaireController@statistics');
+Route::get('adhoc', 'AdhocController@index');
+Route::post('adhoc','AdhocController@store');
